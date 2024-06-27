@@ -19,6 +19,16 @@ const config = {
       },
     },
     extend: {
+      zIndex: {
+        '100': '100',
+      },
+      boxShadow: {
+        'custom-lg': '0 9px 40px rgba(0, 0, 0, 0.08)',
+        'custom-card': '0 9px 40px rgba(0, 0, 0, 0.05)',
+      },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

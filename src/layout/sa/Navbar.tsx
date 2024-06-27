@@ -23,7 +23,7 @@ const SaNavBar = () => {
           href='/partners'
           className={`flex items-center gap-2 w-full justify-start font-medium  cursor-pointer p-2 rounded-md ${
             pathname === "/partners"
-              ? "bg-[#1C2AAC] text-white"
+              ? "bg-[#F5C400] text-white"
               : "hover:bg-secondary hover:text-secondary-forground"
           }`}>
           <Handshake className='size-5' />
@@ -33,7 +33,7 @@ const SaNavBar = () => {
           href='/subscriptions'
           className={`flex items-center gap-2 w-full justify-start font-medium  cursor-pointer p-2 rounded-md ${
             pathname === "/subscriptions"
-              ? "bg-[#1C2AAC] text-white"
+              ? "bg-[#F5C400] text-white"
               : "hover:bg-secondary hover:text-secondary-forground"
           }`}>
           <SquareUserRound className='size-5' />
@@ -43,7 +43,7 @@ const SaNavBar = () => {
           href='/doors'
           className={`flex items-center gap-2 w-full justify-start font-medium  cursor-pointer p-2 rounded-md ${
             pathname === "/doors"
-              ? "bg-[#1C2AAC] text-white"
+              ? "bg-[#F5C400] text-white"
               : "hover:bg-secondary hover:text-secondary-forground"
           }`}>
           <DoorOpen className='size-5' />
