@@ -20,7 +20,9 @@ const config = {
     },
     extend: {
       zIndex: {
-        '100': '100',
+        '19': '19',
+        '20': '20',
+        'all': '1000',
       },
       boxShadow: {
         'custom-lg': '0 9px 40px rgba(0, 0, 0, 0.08)',

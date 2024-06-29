@@ -2,6 +2,7 @@ import React from 'react';
 import MemberCard from './MemberCard';
 
 interface Member {
+  id:string;
   name: string;
   expiration: string | null;
   expired: boolean;

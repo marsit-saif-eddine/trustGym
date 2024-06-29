@@ -8,6 +8,7 @@ import { ChevronDown, Calendar, Wallet, Store, Lock, Settings, Users } from "luc
 import { ModeToggle } from "@/components/ModeToggle";
 import { FiHome } from "react-icons/fi";
 import { HiOutlineLogout } from "react-icons/hi";
+import { Button } from "@/components/ui/button";
 
 interface MNavBarProps {
   isSidebarOpen: boolean;
@@ -22,7 +23,7 @@ const MNavBar: React.FC<MNavBarProps> = ({ isSidebarOpen }) => {
   };
 
   return (
-    <nav className={`fixed md:relative flex flex-col w-4/5 md:w-1/5 h-screen justify-start items-center p-4 bg-card transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 md:translate-x-0 z-100`}>
+    <nav className={`fixed md:relative flex flex-col w-4/5 md:w-1/5 h-screen justify-start items-center p-4 bg-card transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 md:translate-x-0 z-20`}>
       <Image src={logo} alt="logo" objectPosition="center" objectFit="cover" className="w-44" />
       <div className="flex flex-col gap-2.5 mt-5 w-full px-2">
         <div className="relative flex flex-col w-full">
@@ -132,16 +133,15 @@ const MNavBar: React.FC<MNavBarProps> = ({ isSidebarOpen }) => {
       <ModeToggle />
 
       <div className="md:hidden flex flex-col items-center mt-auto gap-4">
-        <div className="flex items-center gap-2 bg-[hsl(var(--primary))] px-4 py-2 rounded-[6px] cursor-pointer">
+        <Button variant="default" size="default" className="flex items-center gap-2 bg-[hsl(var(--primary))] px-4 py-2 rounded-[6px] cursor-pointer">
           <FiHome className="text-[hsl(var(--primary-foreground))] w-6 h-6" />
           <span className="text-[hsl(var(--primary-foreground))]">Accueil</span>
-        </div>
-        <div className="flex items-center gap-2 bg-[hsl(var(--secondary))] px-4 py-2 rounded-[6px] cursor-pointer">
+        </Button>
+        <Button variant="default" size="default" className="flex items-center gap-2 bg-[hsl(var(--secondary))] px-4 py-2 rounded-[6px] cursor-pointer">
           <HiOutlineLogout className="text-[hsl(var(--primary))] w-6 h-6" />
           <span className="text-[hsl(var(--primary))]">Déconnexion</span>
-        </div>
+        </Button>
       </div>
-
     </nav>
   );
 };
