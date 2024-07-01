@@ -70,13 +70,13 @@ const MemberManagement: React.FC = () => {
         <Card>
           <CardHeader>
             <CardTitle className="text-primary">Nbr d'abonnés actif</CardTitle>
-            <CardDescription className="text-l">42</CardDescription>
+            <CardDescription >42</CardDescription>
           </CardHeader>
         </Card>
         <Card>
           <CardHeader>
             <CardTitle className="text-destructive">Nbr d'abonnés bloqué</CardTitle>
-            <CardDescription className="text-l">4</CardDescription>
+            <CardDescription >4</CardDescription>
           </CardHeader>
         </Card>
       </div>
@@ -115,7 +115,7 @@ const MemberManagement: React.FC = () => {
             onClick={() => paginate(currentPage - 1)}
             disabled={currentPage === 1}
             variant="ghost"
-            className={`text-black flex items-center hover:underline ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''}`}
+            className={`flex items-center hover:underline ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''}`}
           >
             <FaArrowLeft className="mr-2" />
             Précédent
@@ -126,7 +126,7 @@ const MemberManagement: React.FC = () => {
                 key={number}
                 onClick={() => paginate(number)}
                 variant={currentPage === number ? "default" : "ghost"}
-                className={`border border-muted-foreground rounded-[6px] px-3 py-1 ${currentPage === number ? 'bg-primary text-primary-foreground' : ''}`}
+                className={`rounded-[6px] px-3 py-1 ${currentPage === number ? 'bg-primary text-primary-foreground' : ''}`}
               >
                 {number}
               </Button>
@@ -136,7 +136,7 @@ const MemberManagement: React.FC = () => {
             onClick={() => paginate(currentPage + 1)}
             disabled={currentPage === Math.ceil(members.length / membersPerPage)}
             variant="ghost"
-            className={`text-black flex items-center hover:underline ${currentPage === Math.ceil(members.length / membersPerPage) ? 'cursor-not-allowed opacity-50' : ''}`}
+            className={`flex items-center hover:underline ${currentPage === Math.ceil(members.length / membersPerPage) ? 'cursor-not-allowed opacity-50' : ''}`}
           >
             Suivant
             <FaArrowRight className="ml-2" />

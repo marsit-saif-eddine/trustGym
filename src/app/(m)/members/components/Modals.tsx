@@ -43,7 +43,7 @@ export const Modal: React.FC<ModalProps> = ({
             </svg>
           </button>
         </div>
-        <CardHeader>
+        <CardHeader className="-mt-7">
           <CardTitle className="text-2xl font-medium">{title}</CardTitle>
           <CardDescription className="text-sm text-muted-foreground" >{description}</CardDescription>
         </CardHeader>

@@ -5,10 +5,13 @@ import { useForm } from 'react-hook-form';
 import { HiOutlinePencil, HiOutlinePlusCircle, HiOutlineTrash, HiOutlineArrowSmLeft } from 'react-icons/hi';
 import { BiCreditCardFront } from 'react-icons/bi';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { useRouter } from 'next/navigation';
 import { DeleteMemberModal, EditMemberModal, RegisterAccessModal } from '../components/Modals';
+import AbonnementTable from '../components/Abonnement/AbonnementTable';
+import { CreateAbonnementModal } from '../components/Abonnement/Modals';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
+import AccesTable from '../components/Access/AccesTable';
 
 const MemberDetailsPage: React.FC = () => {
   const methods = useForm<any>();
@@ -17,6 +20,7 @@ const MemberDetailsPage: React.FC = () => {
   const [isMemberFormOpen, setIsMemberFormOpen] = useState(false); 
   const [isDeleteMemberFormOpen, setIsDeleteMemberFormOpen] = useState(false); 
   const [isAccessFormOpen, setIsAccessFormOpen] = useState(false); 
+  const [isAbonnementFormOpen, setIsAbonnementFormOpen] = useState(false); 
 
   const router = useRouter();
 
@@ -29,9 +33,9 @@ const MemberDetailsPage: React.FC = () => {
       case 'general':
         return <MemberForm methods={methods} />;
       case 'abonnement':
-        return <div>Abonnement Content</div>;
+        return <AbonnementTable />;
       case 'acces':
-        return <div>Accès Content</div>;
+        return <AccesTable />;
       case 'achat':
         return <div>Achat Content</div>;
       case 'solde':
@@ -54,22 +58,18 @@ const MemberDetailsPage: React.FC = () => {
         </div>
         <div className="flex flex-col sm:flex-row sm:space-x-4 mb-6 sm:mb-0 space-y-4 sm:space-y-0">
           <Label className="inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              className="sr-only peer"
+            <Switch
               checked={isMemberBlocked}
               onChange={() => setIsMemberBlocked(!isMemberBlocked)}
+              checkedText="Membre Actif"
+              uncheckedText="Membre Bloqué"
             />
-            <div className={`relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 dark:bg-gray-700 ${isMemberBlocked ? 'peer-checked:bg-[hsl(var(--destructive))] peer-focus:ring-[hsl(var(--destructive))] dark:peer-focus:ring-[hsl(var(--destructive))]' : 'peer-not-checked:bg-green-600 peer-focus:ring-green-300 dark:peer-focus:ring-green-800'} peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600`}></div>
-            <span className={`ml-3 text-sm font-medium ${isMemberBlocked ? 'text-[hsl(var(--destructive))] dark:text-[hsl(var(--destructive))]' : 'text-green-600 dark:text-green-400'}`}>
-              {isMemberBlocked ? 'Membre Bloqué ' : 'Membre Actif '}
-            </span>
           </Label>
           <Button variant="outline" onClick={() => setIsAccessFormOpen(true)} size="default" className="flex items-center">
             <BiCreditCardFront className="w-6 h-6 mr-2" />
             Enregistrer accès
           </Button>
-          <Button variant="default" className="flex items-center">
+          <Button variant="default" onClick={() => setIsAbonnementFormOpen(true)} className="flex items-center">
             <HiOutlinePlusCircle className="w-6 h-6 mr-2" />
             Ajouter abonnement
           </Button>
@@ -125,6 +125,7 @@ const MemberDetailsPage: React.FC = () => {
       <EditMemberModal isOpen={isMemberFormOpen} onClose={() => setIsMemberFormOpen(false)} />
       <DeleteMemberModal isOpen={isDeleteMemberFormOpen} onClose={() => setIsDeleteMemberFormOpen(false)} />
       <RegisterAccessModal isOpen={isAccessFormOpen} onClose={() => setIsAccessFormOpen(false)} />
+      <CreateAbonnementModal isOpen={isAbonnementFormOpen} onClose={() => setIsAbonnementFormOpen(false)} />
     </div>
   );
 };
