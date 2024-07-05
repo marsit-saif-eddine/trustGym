@@ -69,6 +69,7 @@ const config = {
           DEFAULT: "hsl(var(--dark-primary))",
           foreground: "hsl(var(--dark-primary-foreground))",
         },
+        "custom-orange": "#D7B640",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -12,6 +12,8 @@ import { CreateAbonnementModal } from '../components/Abonnement/Modals';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import AccesTable from '../components/Access/AccesTable';
+import AchatTable from '../components/Achat/AchatTable';
+import SoldeTable from '../components/Solde/SoldeTable';
 
 const MemberDetailsPage: React.FC = () => {
   const methods = useForm<any>();
@@ -37,9 +39,9 @@ const MemberDetailsPage: React.FC = () => {
       case 'acces':
         return <AccesTable />;
       case 'achat':
-        return <div>Achat Content</div>;
+        return <AchatTable />;
       case 'solde':
-        return <div>Solde Content</div>;
+        return <SoldeTable />;
       default:
         return null;
     }

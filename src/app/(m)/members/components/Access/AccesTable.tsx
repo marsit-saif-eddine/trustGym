@@ -12,7 +12,6 @@ const accessData = [
     { id: 'TG-456', date: '27-09-2023', time: '14:17', gate: 2, type: 'Entrée' },
     { id: 'TG-456', date: '26-09-2023', time: '11:53', gate: 5, type: 'Sortie' },
     { id: 'TG-456', date: '25-09-2023', time: '10:58', gate: 3, type: 'Sortie' },
-    // Add more data as needed
 ];
 
 const AccesTable: React.FC = () => {
@@ -51,8 +50,8 @@ const AccesTable: React.FC = () => {
                         <TableHeaderCell>Heure</TableHeaderCell>
                         <TableHeaderCell>Porte</TableHeaderCell>
                         <TableHeaderCell>Type</TableHeaderCell>
-                        <TableHeaderCell>Imprimer</TableHeaderCell>
-                        <TableHeaderCell>Télécharger</TableHeaderCell>
+                        <TableHeaderCell className="text-center align-middle" >Imprimer</TableHeaderCell>
+                        <TableHeaderCell className="text-center align-middle" >Télécharger</TableHeaderCell>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -63,13 +62,14 @@ const AccesTable: React.FC = () => {
                             <TableCell>{access.time}</TableCell>
                             <TableCell>{access.gate}</TableCell>
                             <TableCell>{access.type}</TableCell>
-                            <TableCell>
-                                <HiOutlinePrinter className="w-4 h-4 text-muted-foreground cursor-pointer" />
+                            <TableCell className="text-center align-middle">
+                                <HiOutlinePrinter className="w-4 h-4 mx-auto cursor-pointer" />
                             </TableCell>
-                            <TableCell>
-                                <HiOutlineDownload className="w-4 h-4 text-muted-foreground cursor-pointer" />
+                            <TableCell className="text-center align-middle">
+                                <HiOutlineDownload className="w-4 h-4 mx-auto cursor-pointer" />
                             </TableCell>
                         </TableRow>
+
                     ))}
                 </TableBody>
             </Table>

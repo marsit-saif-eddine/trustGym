@@ -48,7 +48,7 @@ const AbonnementDetails: React.FC<AbonnementDetailsProps> = ({ abonnement, onBac
   };
 
   const updatePaymentStatus = (paymentId: number, status: string) => {
-    setPayments(payments.map(payment => 
+    setPayments(payments.map(payment =>
       payment.id === paymentId ? { ...payment, status } : payment
     ));
   };
@@ -116,6 +116,27 @@ const AbonnementDetails: React.FC<AbonnementDetailsProps> = ({ abonnement, onBac
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-medium">Payements</h3>
         <Button onClick={() => setIsDialogAddPaymentOpen(true)} className="mb-4">Ajouter échéance</Button>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-[hsl(var(--primary))]">Montant total</CardTitle>
+            <CardDescription>{abonnement.totalAmount} DT</CardDescription>
+          </CardHeader>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-[hsl(var(--destructive))]">Échéance</CardTitle>
+            <CardDescription>{abonnement.remainingAmount} DT</CardDescription>
+          </CardHeader>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-[hsl(var(--primary))]">Reste à payer</CardTitle>
+            <CardDescription>{abonnement.remainingAmount} DT</CardDescription>
+          </CardHeader>
+        </Card>
       </div>
       <div className="bg-card rounded-lg shadow mt-4">
         <Table>
