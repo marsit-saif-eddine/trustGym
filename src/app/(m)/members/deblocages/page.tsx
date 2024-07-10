@@ -103,27 +103,28 @@ const GestionDesDeblocages: React.FC = () => {
         </Card>
       </div>
       <div className="bg-card p-4 rounded-[12px] shadow-custom-lg mb-6">
-        <div className="flex items-center justify-between mb-4">
-          <Button
-            variant="outline"
-            className="flex items-center text-default border border-gray-300 rounded-md"
-            onClick={() => setFilterVisible(!filterVisible)}
-          >
-            <BiFilter className="mr-2" />
-            Filtre
-            <FiChevronDown className="ml-2" />
-          </Button>
-          <div className="relative w-full md:w-1/3 mt-4 md:mt-0">
-            <Input
-              type="text"
-              placeholder="Recherche"
-              className="pl-10"
-            />
-            <svg className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-        </div>
+      <div className="flex flex-col md:flex-row items-center justify-between mb-4 gap-4">
+  <Button
+    variant="outline"
+    className="flex items-center text-default border border-gray-300 rounded-md"
+    onClick={() => setFilterVisible(!filterVisible)}
+  >
+    <BiFilter className="mr-2" />
+    Filtre
+    <FiChevronDown className="ml-2" />
+  </Button>
+  <div className="relative w-full md:w-1/3">
+    <Input
+      type="text"
+      placeholder="Recherche"
+      className="pl-10"
+    />
+    <svg className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+  </div>
+</div>
+
         {filterVisible && (
           <div className="bg-[hsl(var(--primary-foreground))] p-4 rounded-[12px] border mb-6">
             <Form {...methods}>

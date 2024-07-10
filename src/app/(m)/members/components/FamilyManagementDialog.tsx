@@ -104,7 +104,6 @@ const FamilyManagementDialog: React.FC<FamilyManagementDialogProps> = ({ isOpen,
         isOpen={isAddModalOpen}
         onClose={() => setAddModalOpen(false)}
         onConfirm={() => {
-          // Handle add family confirm
           setAddModalOpen(false);
         }}
       />
@@ -113,7 +112,6 @@ const FamilyManagementDialog: React.FC<FamilyManagementDialogProps> = ({ isOpen,
         isOpen={isEditModalOpen}
         onClose={() => setEditModalOpen(false)}
         onConfirm={() => {
-          // Handle edit family confirm
           setEditModalOpen(false);
         }}
         children={<input type="text" className="w-full p-2 border border-gray-300 rounded" defaultValue={currentFamily || ''} />}
@@ -123,7 +121,6 @@ const FamilyManagementDialog: React.FC<FamilyManagementDialogProps> = ({ isOpen,
         isOpen={isDeleteModalOpen}
         onClose={() => setDeleteModalOpen(false)}
         onDelete={() => {
-          // Handle delete family confirm
           setDeleteModalOpen(false);
         }}
       />

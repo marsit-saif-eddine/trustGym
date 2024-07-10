@@ -8,9 +8,11 @@ interface MemberCardProps {
   name: string;
   expiration: string | null;
   expired: boolean;
+  onEdit: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
-const MemberCard: React.FC<MemberCardProps> = ({ id, name, expiration, expired }) => {
+const MemberCard: React.FC<MemberCardProps> = ({ id, name, expiration, expired, onEdit, onDelete }) => {
   const router = useRouter();
 
   const handleCardClick = () => {
@@ -41,10 +43,10 @@ const MemberCard: React.FC<MemberCardProps> = ({ id, name, expiration, expired }
           </Button>
         )}
         <div className="flex space-x-2 mt-4">
-          <Button variant="destructive" size="icon" className="flex items-center justify-center w-7 h-7 bg-[hsl(var(--secondary))] rounded-full">
+          <Button variant="destructive" size="icon" className="flex items-center justify-center w-7 h-7 bg-[hsl(var(--secondary))] rounded-full" onClick={(e) => { e.stopPropagation(); onDelete(id); }}>
             <HiOutlineTrash className="text-[hsl(var(--destructive))] w-4 h-4" />
           </Button>
-          <Button variant="default" size="icon" className="flex items-center justify-center w-7 h-7 bg-[hsl(var(--secondary))] rounded-full">
+          <Button variant="default" size="icon" className="flex items-center justify-center w-7 h-7 bg-[hsl(var(--secondary))] rounded-full" onClick={(e) => { e.stopPropagation(); onEdit(id); }}>
             <HiOutlinePencil className="text-[hsl(var(--primary))] w-4 h-4" />
           </Button>
         </div>

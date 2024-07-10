@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import CoachForm from './CoachForm';
+import CoachForm from '../components/CoachForm';
 import { useForm } from 'react-hook-form';
 import { HiOutlinePencil, HiOutlinePlusCircle, HiOutlineTrash, HiOutlineArrowSmLeft } from 'react-icons/hi';
 import { BiCreditCardFront } from 'react-icons/bi';
@@ -10,15 +10,13 @@ import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import SeancesTable from './seances/SeancesTable';
+import { AddSeanceByCoachModal } from '../components/Modals';
 
 const CoachDetailsPage: React.FC = () => {
   const methods = useForm<any>();
   const [activeTab, setActiveTab] = useState('general');
   const [isCoachBlocked, setIsCoachBlocked] = useState(true);
-  const [isCoachFormOpen, setIsCoachFormOpen] = useState(false); 
-  const [isDeleteCoachFormOpen, setIsDeleteCoachFormOpen] = useState(false); 
-  const [isAccessFormOpen, setIsAccessFormOpen] = useState(false); 
-  const [isAbonnementFormOpen, setIsAbonnementFormOpen] = useState(false); 
+  const [isSeanceFormOpen, setIsSeanceFormOpen] = useState(false); 
 
   const router = useRouter();
 
@@ -57,14 +55,14 @@ const CoachDetailsPage: React.FC = () => {
               uncheckedText="Non actif"
             />
           </Label>
-          <Button variant="default" onClick={() => setIsAbonnementFormOpen(true)} className="flex items-center">
+          <Button variant="default" onClick={() => setIsSeanceFormOpen(true)} className="flex items-center">
             <HiOutlinePlusCircle className="w-6 h-6 mr-2" />
             Ajouter séance
           </Button>
-          <Button variant="default" onClick={() => setIsCoachFormOpen(true)} className="flex items-center text-[hsl(var(--primary))] bg-primary/10">
+          <Button variant="default"  className="flex items-center text-[hsl(var(--primary))] bg-primary/10">
             <HiOutlinePencil className="w-4 h-4" />
           </Button>
-          <Button variant="destructive" onClick={() => setIsDeleteCoachFormOpen(true)} className="flex items-center bg-destructive/10 text-[hsl(var(--destructive))]">
+          <Button variant="destructive"  className="flex items-center bg-destructive/10 text-[hsl(var(--destructive))]">
             <HiOutlineTrash className="w-4 h-4" />
           </Button>
         </div>
@@ -118,6 +116,7 @@ const CoachDetailsPage: React.FC = () => {
           </div>
         </div>
       </div>
+      <AddSeanceByCoachModal isOpen={isSeanceFormOpen} onClose={() => setIsSeanceFormOpen(false)} />
 
     </div>
   );

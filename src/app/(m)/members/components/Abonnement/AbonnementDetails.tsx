@@ -10,7 +10,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/ca
 import { Abonnement, Payment } from '../../../types';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { Table, TableHeader, TableBody, TableRow, TableCell, TableHeaderCell } from '@/components/ui/Table';
-import { AddPaymentModal, ConfirmPaymentModal, EditPaymentModal } from './Modals';
+import { AddPaymentModal, ConfirmPaymentModal, DeletePaymentModal, EditPaymentModal } from './Modals';
 
 interface AbonnementDetailsProps {
   abonnement: Abonnement;
@@ -24,6 +24,7 @@ const AbonnementDetails: React.FC<AbonnementDetailsProps> = ({ abonnement, onBac
   const [payments, setPayments] = useState<Payment[]>(abonnement.payments);
   const [isDialogAddPaymentOpen, setIsDialogAddPaymentOpen] = useState(false);
   const [isDialogEditPaymentOpen, setIsDialogEditPaymentOpen] = useState(false);
+  const [isDialogDeletePaymentOpen, setIsDialogDeletePaymentOpen] = useState(false);
   const [isDialogConfirmPaymentOpen, setIsDialogConfirmPaymentOpen] = useState(false);
   const [currentPayment, setCurrentPayment] = useState<Payment | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -178,7 +179,7 @@ const AbonnementDetails: React.FC<AbonnementDetailsProps> = ({ abonnement, onBac
                   <Button onClick={() => setIsDialogEditPaymentOpen(true)} variant="ghost" className="flex items-center text-[hsl(var(--primary))] p-2 m-0">
                     <HiOutlinePencil />
                   </Button>
-                  <Button variant="ghost" className="flex items-center text-[hsl(var(--destructive))] p-2 m-0">
+                  <Button onClick={() => setIsDialogDeletePaymentOpen(true)} variant="ghost" className="flex items-center text-[hsl(var(--destructive))] p-2 m-0">
                     <HiOutlineTrash />
                   </Button>
                 </TableCell>
@@ -220,7 +221,7 @@ const AbonnementDetails: React.FC<AbonnementDetailsProps> = ({ abonnement, onBac
           </Button>
         </div>
       </div>
-
+      <DeletePaymentModal isOpen={isDialogDeletePaymentOpen} onClose={() => setIsDialogDeletePaymentOpen(false)} />
       <AddPaymentModal isOpen={isDialogAddPaymentOpen} onClose={() => setIsDialogAddPaymentOpen(false)} />
       <EditPaymentModal isOpen={isDialogEditPaymentOpen} onClose={() => setIsDialogEditPaymentOpen(false)} />
       {currentPayment && (

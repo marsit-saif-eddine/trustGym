@@ -84,7 +84,7 @@ const GestionDesAbonnements: React.FC = () => {
                 </Card>
             </div>
             <div className="bg-card p-4 rounded-[12px] shadow-custom-lg mb-6">
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex flex-col md:flex-row items-center justify-between mb-4 space-y-4 md:space-y-0">
                     <Button
                         variant="outline"
                         className="flex items-center text-default border border-gray-300 rounded-md"
@@ -94,7 +94,7 @@ const GestionDesAbonnements: React.FC = () => {
                         Filtre
                         <FiChevronDown className="ml-2" />
                     </Button>
-                    <div className="relative w-full md:w-1/3 mt-4 md:mt-0">
+                    <div className="relative w-full md:w-1/3">
                         <Input
                             type="text"
                             placeholder="Recherche"
@@ -105,6 +105,7 @@ const GestionDesAbonnements: React.FC = () => {
                         </svg>
                     </div>
                 </div>
+
                 {filterVisible && (
                     <div className="bg-[hsl(var(--primary-foreground))] p-4 rounded-[12px] border mb-6">
                         <Form {...methods}>

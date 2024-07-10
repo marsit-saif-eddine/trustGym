@@ -30,6 +30,9 @@ export const AddPaymentModal: React.FC<ModalProps> = (props) => {
   );
 };
 
+export const DeletePaymentModal: React.FC<ModalProps> = (props) => (
+  <Modal title="Etes-vous sûr(e) de vouloir supprimer ?" description="Cette famille va être supprimée définitivement" confirmText="Supprimer" modalClassName="max-w-md" {...props} />
+);
 
 export const EditPaymentModal: React.FC<ModalProps> = (props) => {
   const methods = useForm();

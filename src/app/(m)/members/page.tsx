@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from 'react';
 import MemberList from './components/MemberList';
 import FamilyManagementDialog from './components/FamilyManagementDialog';
@@ -9,21 +10,27 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
-import { AddMemberModal } from './components/Modals';
+import { AddMemberModal, DeleteMemberModal, EditMemberModal } from './components/Modals';
+import { CreateAbonnementModal } from './components/Abonnement/Modals';
 
 const members = [
-  { id:'0', name: 'John Doe', expiration: '2023-07-25', expired: false },
-  { id:'1',name: 'Jane Smith', expiration: '2022-05-10', expired: true },
-  { id:'2', name: 'Bob Johnson', expiration: null, expired: false },
-  { id:'3', name: 'Alice Brown', expiration: '2023-08-15', expired: false },
-  { id:'4', name: 'Charlie Davis', expiration: '2022-09-20', expired: true },
-  { id:'5', name: 'Emily Wilson', expiration: null, expired: false }
+  { id: '0', name: 'John Doe', expiration: '2023-07-25', expired: false },
+  { id: '1', name: 'Jane Smith', expiration: '2022-05-10', expired: true },
+  { id: '2', name: 'Bob Johnson', expiration: null, expired: false },
+  { id: '3', name: 'Alice Brown', expiration: '2023-08-15', expired: false },
+  { id: '4', name: 'Charlie Davis', expiration: '2022-09-20', expired: true },
+  { id: '5', name: 'Emily Wilson', expiration: null, expired: false }
 ];
 
 const MemberManagement: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isMemberFormOpen, setIsMemberFormOpen] = useState(false); 
+  const [isMemberFormOpen, setIsMemberFormOpen] = useState(false);
+  const [isMemberEditFormOpen, setIsMemberEditFormOpen] = useState(false);
+  const [isMemberDeleteFormOpen, setIsMemberDeleteFormOpen] = useState(false);
+  const [currentMemberId, setCurrentMemberId] = useState<string | null>(null);
+  const [isAbonnementFormOpen, setIsAbonnementFormOpen] = useState(false); 
+
   const membersPerPage = 6;
 
   const indexOfLastMember = currentPage * membersPerPage;
@@ -35,6 +42,17 @@ const MemberManagement: React.FC = () => {
   const handleSaveMember = (memberData: any) => {
     console.log('Saving member:', memberData);
   };
+
+  const handleEditMember = (id: string) => {
+    setCurrentMemberId(id);
+    setIsMemberEditFormOpen(true);
+  };
+
+  const handleDeleteMember = (id: string) => {
+    setCurrentMemberId(id);
+    setIsMemberDeleteFormOpen(true);
+  };
+
   return (
     <div className="p-6">
       <div className="flex flex-col md:flex-row justify-between items-center mb-6">
@@ -56,6 +74,7 @@ const MemberManagement: React.FC = () => {
             variant="outline"
             size="default"
             className="flex items-center"
+            onClick={() => setIsAbonnementFormOpen(true)}
           >
             <HiOutlinePlusCircle className="w-6 h-6 mr-2" />
             Créer abonnement
@@ -70,13 +89,13 @@ const MemberManagement: React.FC = () => {
         <Card>
           <CardHeader>
             <CardTitle className="text-primary">Nbr d'abonnés actif</CardTitle>
-            <CardDescription >42</CardDescription>
+            <CardDescription>42</CardDescription>
           </CardHeader>
         </Card>
         <Card>
           <CardHeader>
             <CardTitle className="text-destructive">Nbr d'abonnés bloqué</CardTitle>
-            <CardDescription >4</CardDescription>
+            <CardDescription>4</CardDescription>
           </CardHeader>
         </Card>
       </div>
@@ -107,8 +126,8 @@ const MemberManagement: React.FC = () => {
             </svg>
           </div>
         </div>
-        
-        <MemberList members={currentMembers} />
+
+        <MemberList members={currentMembers} onEdit={handleEditMember} onDelete={handleDeleteMember} />
 
         <div className="flex flex-col sm:flex-row justify-between items-center mt-6">
           <Button
@@ -144,7 +163,10 @@ const MemberManagement: React.FC = () => {
         </div>
       </div>
       <FamilyManagementDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
-      <AddMemberModal isOpen={isMemberFormOpen} onClose={() => setIsMemberFormOpen(false)}  />
+      <AddMemberModal isOpen={isMemberFormOpen} onClose={() => setIsMemberFormOpen(false)} />
+      <EditMemberModal isOpen={isMemberEditFormOpen} onClose={() => setIsMemberEditFormOpen(false)} />
+      <DeleteMemberModal isOpen={isMemberDeleteFormOpen} onClose={() => setIsMemberDeleteFormOpen(false)} />
+      <CreateAbonnementModal isOpen={isAbonnementFormOpen} onClose={() => setIsAbonnementFormOpen(false)} />
 
     </div>
   );

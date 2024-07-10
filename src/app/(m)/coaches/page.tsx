@@ -16,6 +16,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import userImage from "@/../public/images/profile-icon-png.png";
 import CoachesList from './components/CoachesList';
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import { RegisterAccessModal } from '../members/components/Modals';
+import { AddCoachModal, AddSeanceModal } from './components/Modals';
+import { useRouter } from 'next/navigation';
 
 type FilterFormInputs = {
     coach: string;
@@ -38,6 +41,9 @@ const GestionDesCoaches: React.FC = () => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [isBlockModalOpen, setIsBlockModalOpen] = useState(false);
     const [isUnblockModalOpen, setIsUnblockModalOpen] = useState(false);
+    const [isAccessFormOpen, setIsAccessFormOpen] = useState(false); 
+    const [isSeanceFormOpen, setIsSeanceFormOpen] = useState(false); 
+    const [isCoachFormOpen, setIsCoachFormOpen] = useState(false); 
     const [selectedCoach, setSelectedCoach] = useState(null);
     const [isTableView, setIsTableView] = useState(true);
 
@@ -70,72 +76,78 @@ const GestionDesCoaches: React.FC = () => {
         }
     };
 
+    const router = useRouter();
+
+    const handleCardClick = (id:string) => {
+        router.push(`/coaches/${id}`);
+    };
+
     return (
         <div className="p-6">
-            <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-                <div className="mb-4 md:mb-0">
-                    <h1 className="text-2xl font-medium text-foreground">Gestion des coaches</h1>
-                    <p className="text-sm text-muted-foreground">Bienvenue dans votre tableau de bord et plus de texte ici !</p>
-                </div>
-                <div className="flex space-x-2">
-                    <Button variant="outline"><BiCreditCardFront className="w-6 h-6 mr-2" />Enregistrer accès</Button>
-                    <Button variant="outline">
-                        <HiOutlinePlusCircle className="w-6 h-6 mr-2" />
-                        Ajouter séance
-                    </Button>
-                    <Button variant="default">
-                        <HiOutlinePlusCircle className="w-6 h-6 mr-2" />
-                        Ajouter coach
-                    </Button>
-                </div>
-            </div>
-            <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="text-primary">Coaches actif</CardTitle>
-                        <CardDescription>42</CardDescription>
-                    </CardHeader>
-                </Card>
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="text-destructive">Coaches non actif</CardTitle>
-                        <CardDescription>4</CardDescription>
-                    </CardHeader>
-                </Card>
-            </div>
+            <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+  <div className="mb-4 md:mb-0">
+    <h1 className="text-2xl font-medium text-foreground">Gestion des coaches</h1>
+    <p className="text-sm text-muted-foreground">Bienvenue dans votre tableau de bord et plus de texte ici !</p>
+  </div>
+  <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
+    <Button variant="outline" onClick={() => setIsAccessFormOpen(true)}>
+      <BiCreditCardFront className="w-6 h-6 mr-2" />
+      Enregistrer accès
+    </Button>
+    <Button variant="outline" onClick={() => setIsSeanceFormOpen(true)}>
+      <HiOutlinePlusCircle className="w-6 h-6 mr-2" />
+      Ajouter séance
+    </Button>
+    <Button variant="default" onClick={() => setIsCoachFormOpen(true)}>
+      <HiOutlinePlusCircle className="w-6 h-6 mr-2" />
+      Ajouter coach
+    </Button>
+  </div>
+</div>
+<div className="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+  <Card>
+    <CardHeader>
+      <CardTitle className="text-primary">Coaches actif</CardTitle>
+      <CardDescription>42</CardDescription>
+    </CardHeader>
+  </Card>
+  <Card>
+    <CardHeader>
+      <CardTitle className="text-destructive">Coaches non actif</CardTitle>
+      <CardDescription>4</CardDescription>
+    </CardHeader>
+  </Card>
+</div>
             <div className="bg-card p-4 rounded-[12px] shadow-custom-lg mb-6">
-                <div className="flex items-center justify-between mb-4">
-                    <Button
-                        variant="outline"
-                        className="flex items-center text-default border border-gray-300 rounded-md"
-                        onClick={() => setFilterVisible(!filterVisible)}
-                    >
-                        <BiFilter className="mr-2" />
-                        Filtre
-                        <FiChevronDown className="ml-2" />
-                    </Button>
-                    <div className="flex items-center space-x-4 w-full md:w-1/3 mt-4 md:mt-0">
-                        <div className="relative flex-1">
-                            <Input
-                                type="text"
-                                placeholder="Recherche"
-                                className="pl-10"
-                            />
-                            <svg className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </div>
-                        <div className="flex space-x-2">
-                            <Button variant={isTableView ? "default" : "outline"} onClick={() => setIsTableView(true)}>
-                                <HiOutlineServer className="w-6 h-6" />
-                            </Button>
-                            <Button variant={!isTableView ? "default" : "outline"} onClick={() => setIsTableView(false)}>
-                                <HiOutlineViewGrid className="w-6 h-6" />
-                            </Button>
-                        </div>
-                    </div>
-
-                </div>
+            <div className="flex flex-col md:flex-row items-center justify-between mb-4 gap-4">
+            <Button
+      variant="outline"
+      className="flex items-center text-default border border-gray-300 rounded-md"
+      onClick={() => setFilterVisible(!filterVisible)}
+    >
+      <BiFilter className="mr-2" />
+      Filtre
+      <FiChevronDown className="ml-2" />
+    </Button>
+                    <div className="relative w-full md:w-1/3 mt-4 md:mt-0">
+      <Input
+        type="text"
+        placeholder="Recherche"
+        className="pl-10"
+      />
+      <svg className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+    <div className="flex space-x-2">
+      <Button variant={isTableView ? "default" : "outline"} onClick={() => setIsTableView(true)}>
+        <HiOutlineServer className="w-6 h-6" />
+      </Button>
+      <Button variant={!isTableView ? "default" : "outline"} onClick={() => setIsTableView(false)}>
+        <HiOutlineViewGrid className="w-6 h-6" />
+      </Button>
+    </div>
+  </div>
                 {filterVisible && (
                     <div className="bg-[hsl(var(--primary-foreground))] p-4 rounded-[12px] border mb-6">
                         <Form {...methods}>
@@ -215,7 +227,7 @@ const GestionDesCoaches: React.FC = () => {
                                         </Button>
                                     </TableCell>
                                     <TableCell className="text-center align-middle">
-                                        <HiReply className="w-6 h-6 text-[hsl(var(--primary))] cursor-pointer transform scale-x-[-1]" />
+                                        <HiReply onClick={() => handleCardClick(coach.id)} className="w-6 h-6 text-[hsl(var(--primary))] cursor-pointer transform scale-x-[-1]" />
                                     </TableCell>
                                 </TableRow>
                             ))}
@@ -257,6 +269,10 @@ const GestionDesCoaches: React.FC = () => {
                     </Button>
                 </div>
             </div>
+            <RegisterAccessModal isOpen={isAccessFormOpen} onClose={() => setIsAccessFormOpen(false)} />
+            <AddSeanceModal isOpen={isSeanceFormOpen} onClose={() => setIsSeanceFormOpen(false)} />
+            <AddCoachModal isOpen={isCoachFormOpen} onClose={() => setIsCoachFormOpen(false)} />
+
         </div>
     );
 };

@@ -1,0 +1,46 @@
+.sx__calendar {
+  border: none !important;
+}
+
+.sx__today-button,
+.sx__calendar-input,
+.sx__view-selection-selected-item,
+.sx__date-input,
+.sx__date-input-label {
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
+
+.sx__today-button, 
+.sx__view-selection-selected-item {
+  @apply bg-transparent text-primary border border-primary hover:bg-primary/10;
+}
+
+.sx__calendar-input, 
+.sx__date-input {
+  @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.sx__calendar, 
+.sx__week-header-content {
+  @apply bg-card;
+}
+
+.sx__date-input-label{
+  display: none !important;
+}
+
+.sx__date-picker__month-view-header__month-year{
+  @apply text-base;
+}
+.sx__date-picker__day-name, .sx__date-picker__day, .sx__range-heading{
+  @apply text-sm;
+}
+
+.sx__date-picker-popup {
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.sx__date-picker-popup::-webkit-scrollbar {
+  display: none; 
+}

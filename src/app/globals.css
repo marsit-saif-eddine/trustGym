@@ -29,6 +29,16 @@
     --radius: 0.5rem;
     --custom-orange: #D7B640;
 
+    /* ScheduleX Custom Colors */
+    --sx-color-primary: hsl(var(--primary)) !important;
+    --sx-color-primary-container: hsl(var(--primary-foreground)) !important;
+    --sx-color-on-primary-container: hsl(var(--primary)) !important;
+    
+    --sx-color-surface-dim: hsl(var(--primary-foreground)) !important;
+    
+    --sx-color-surface-tint: hsl(var(--primary)) !important;
+    --sx-color-neutral: var(--sx-color-outline) !important;
+    
   }
 
   .dark {
@@ -53,6 +63,8 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
   }
+
+  
 }
 
 @layer base {

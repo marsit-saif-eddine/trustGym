@@ -11,6 +11,7 @@ import { Form, FormField, FormItem, FormLabel, FormControl } from '@/components/
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FiChevronDown } from 'react-icons/fi';
 import { Select } from '@/components/ui/select';
+import { AddSeanceByCoachModal, DeleteSeanceByCoachModal, ModifySeanceByCoachModal } from '../../components/Modals';
 
 type FilterFormInputs = {
     salle: string;
@@ -26,6 +27,9 @@ const séancesData = [
 const SeancesTable: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [filterVisible, setFilterVisible] = useState(false);
+    const [isModifySeanceFormOpen, setIsModifySeanceFormOpen] = useState(false); 
+    const [isDeleteSeanceFormOpen, setIsDeleteSeanceFormOpen] = useState(false); 
+
     const sessionsPerPage = 3;
 
     const indexOfLastSession = currentPage * sessionsPerPage;
@@ -133,10 +137,10 @@ const SeancesTable: React.FC = () => {
                                     />
                                 </TableCell>
                                 <TableCell className="flex space-x-2">
-                                    <Button variant="ghost" className="text-[hsl(var(--primary))] p-2 m-0">
+                                    <Button variant="ghost" onClick={() => setIsModifySeanceFormOpen(true)} className="text-[hsl(var(--primary))] p-2 m-0">
                                         <HiOutlinePencil />
                                     </Button>
-                                    <Button variant="ghost" className="text-[hsl(var(--destructive))] p-2 m-0">
+                                    <Button variant="ghost" onClick={() => setIsDeleteSeanceFormOpen(true)} className="text-[hsl(var(--destructive))] p-2 m-0">
                                         <HiOutlineTrash />
                                     </Button>
                                 </TableCell>
@@ -179,6 +183,8 @@ const SeancesTable: React.FC = () => {
                     </Button>
                 </div>
             </div>
+            <ModifySeanceByCoachModal isOpen={isModifySeanceFormOpen} onClose={() => setIsModifySeanceFormOpen(false)} />
+            <DeleteSeanceByCoachModal isOpen={isDeleteSeanceFormOpen} onClose={() => setIsDeleteSeanceFormOpen(false)} />
 
         </div>
     );

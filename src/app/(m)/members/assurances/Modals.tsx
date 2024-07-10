@@ -15,3 +15,7 @@ export const EditSoldeModal: React.FC<ModalProps> = (props) => {
     </Modal>
   );
 };
+
+export const DeleteSoldeModal: React.FC<ModalProps> = (props) => (
+  <Modal title="Etes-vous sûr(e) de vouloir supprimer ?" description="Cette famille va être supprimée définitivement" confirmText="Supprimer" modalClassName="max-w-md" {...props} />
+);
