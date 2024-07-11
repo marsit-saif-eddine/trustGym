@@ -36,7 +36,7 @@ const FamilyManagementDialog: React.FC<FamilyManagementDialogProps> = ({ isOpen,
 
   if (!isOpen) return null;
 
-  const families = ['Ben Foulen', 'Ben Foulen', 'Ben Foulen', 'Ben Foulen'];
+  const families = ['Ben Foulenn', 'Ben Foulen', 'Ben Foulen', 'Ben Foulen'];
 
   const handleAddFamily = () => {
     setAddModalOpen(true);
@@ -114,7 +114,7 @@ const FamilyManagementDialog: React.FC<FamilyManagementDialogProps> = ({ isOpen,
         onConfirm={() => {
           setEditModalOpen(false);
         }}
-        children={<input type="text" className="w-full p-2 border border-gray-300 rounded" defaultValue={currentFamily || ''} />}
+        defaultValue={currentFamily || ''}
       />
 
       <DeleteFamilyModal

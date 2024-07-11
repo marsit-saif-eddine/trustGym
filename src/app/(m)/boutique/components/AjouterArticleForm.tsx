@@ -42,7 +42,7 @@ const AjouterArticleForm: React.FC<AjouterArticleFormProps> = ({ methods }) => {
           name="nom_article"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Nom de l'article</FormLabel>
+              <FormLabel>Nom de l&apos;article</FormLabel>
               <FormControl>
                 <Input {...field} type="text" className="w-full p-2 border border-gray-300 rounded" />
               </FormControl>

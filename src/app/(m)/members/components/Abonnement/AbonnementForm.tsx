@@ -24,7 +24,7 @@ const AbonnementForm: React.FC<AbonnementFormProps> = ({ methods }) => (
         )} />
         <FormField name="typeAbonnement" control={methods.control} render={({ field }) => (
           <FormItem>
-            <FormLabel>Type d'abonnement</FormLabel>
+            <FormLabel>Type d&apos;abonnement</FormLabel>
             <FormControl>
               <Input {...field} type="text" className="w-full p-2 border border-gray-300 rounded" />
             </FormControl>
@@ -40,7 +40,7 @@ const AbonnementForm: React.FC<AbonnementFormProps> = ({ methods }) => (
         )} />
       </div>
 
-      <h3 className="text-lg font-medium">Informations sur l'abonnement</h3>
+      <h3 className="text-lg font-medium">Informations sur l&apos;abonnement</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <FormField name="dateDebut" control={methods.control} render={({ field }) => (
           <FormItem>

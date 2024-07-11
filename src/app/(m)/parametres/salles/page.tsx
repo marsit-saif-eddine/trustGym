@@ -74,7 +74,7 @@ const LesSallesPage: React.FC = () => {
                 <TableHeaderCell>Salle</TableHeaderCell>
                 <TableHeaderCell>Date début</TableHeaderCell>
                 <TableHeaderCell>Date fin</TableHeaderCell>
-                <TableHeaderCell>Type d'abonnement</TableHeaderCell>
+                <TableHeaderCell>Type d&apos;abonnement</TableHeaderCell>
                 <TableHeaderCell>Prix</TableHeaderCell>
                 <TableHeaderCell>État</TableHeaderCell>
                 <TableHeaderCell>Action</TableHeaderCell>

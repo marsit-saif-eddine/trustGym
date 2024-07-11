@@ -27,7 +27,7 @@ const SubscriptionTypesPage: React.FC = () => {
     <div className="p-6">
       <header className="flex flex-col md:flex-row justify-between items-center mb-6">
         <div>
-          <h1 className="text-2xl font-medium text-foreground">Types d'abonnements</h1>
+          <h1 className="text-2xl font-medium text-foreground">Types d&apos;abonnements</h1>
           <p className="text-sm text-muted-foreground">Bienvenue dans votre tableau de bord et plus de texte ici !</p>
         </div>
         <div className="flex flex-col sm:flex-row sm:space-x-4 mb-6 sm:mb-0 space-y-4 sm:space-y-0">

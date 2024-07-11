@@ -51,13 +51,13 @@ const AbonnementTable: React.FC = () => {
                 </Card>
                 <Card>
                     <CardHeader>
-                        <CardTitle className="text-[hsl(var(--primary))]">Date d'expiration</CardTitle>
+                        <CardTitle className="text-[hsl(var(--primary))]">Date d&apos;expiration</CardTitle>
                         <CardDescription>15/12/2023</CardDescription>
                     </CardHeader>
                 </Card>
                 <Card>
                     <CardHeader>
-                        <CardTitle className="text-[hsl(var(--primary))]">Nbr d'abonnement</CardTitle>
+                        <CardTitle className="text-[hsl(var(--primary))]">Nbr d&apos;abonnement</CardTitle>
                         <CardDescription>3</CardDescription>
                     </CardHeader>
                 </Card>
@@ -85,7 +85,7 @@ const AbonnementTable: React.FC = () => {
                         <TableRow>
                             <TableHeaderCell>Date début</TableHeaderCell>
                             <TableHeaderCell>Date fin</TableHeaderCell>
-                            <TableHeaderCell>Type d'abonnement</TableHeaderCell>
+                            <TableHeaderCell>Type d&apos;abonnement</TableHeaderCell>
                             <TableHeaderCell>Montant total</TableHeaderCell>
                             <TableHeaderCell>Reste à payer</TableHeaderCell>
                             <TableHeaderCell>Etat</TableHeaderCell>

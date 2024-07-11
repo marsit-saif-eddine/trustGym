@@ -5,6 +5,9 @@ import { useForm } from 'react-hook-form';
 import RegisterAccessForm from './RegisterAccessForm';
 import { Modal, ModalProps } from '@/components/ui/Modal';
 
+interface EditFamilyModalProps extends ModalProps {
+  defaultValue: string;
+}
 
 export const AddFamilyModal: React.FC<ModalProps> = (props) => (
   <Modal title="Ajouter une nouvelle famille" description="Veuillez saisir le nom de la nouvelle famille dans le champ de texte ci-dessous" confirmText="Confirmer" modalClassName="max-w-md" {...props}>
@@ -12,9 +15,9 @@ export const AddFamilyModal: React.FC<ModalProps> = (props) => (
   </Modal>
 );
 
-export const EditFamilyModal: React.FC<ModalProps> = (props) => (
+export const EditFamilyModal: React.FC<EditFamilyModalProps> = ({ defaultValue, ...props }) => (
   <Modal title="Modifier famille" description="Veuillez saisir le nom de la nouvelle famille dans le champ de texte ci-dessous" confirmText="Confirmer" modalClassName="max-w-md" {...props}>
-    <input type="text" className="w-full p-2 border border-gray-300 rounded" defaultValue="Ben Foulen" />
+    <input type="text" className="w-full p-2 border border-gray-300 rounded" defaultValue={defaultValue} />
   </Modal>
 );
 

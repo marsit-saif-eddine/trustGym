@@ -34,7 +34,7 @@ const FormSection = () => {
 
   return (
     <div className='w-full flex flex-col gap-2'>
-      <Form {...form} onSubmit={onSubmit}>
+      <Form {...form} >
         <FormField
           control={form.control}
           name='email'

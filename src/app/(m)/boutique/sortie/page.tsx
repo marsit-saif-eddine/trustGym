@@ -133,7 +133,7 @@ const SortiePage: React.FC = () => {
             <div className="relative mb-4">
               <FiUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
               <Select className="w-full pl-10">
-                <option value="">Entrer l'utilisateur</option>
+                <option value="">Entrer l&apos;utilisateur</option>
                 <option value="user1">User1</option>
                 <option value="user2">User2</option>
               </Select>

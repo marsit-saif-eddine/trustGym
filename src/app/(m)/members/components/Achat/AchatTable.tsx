@@ -33,7 +33,7 @@ const AchatTable: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 <Card>
                     <CardHeader>
-                        <CardTitle className="text-[hsl(var(--primary))]">Total d'achat</CardTitle>
+                        <CardTitle className="text-[hsl(var(--primary))]">Total d&apos;achat</CardTitle>
                         <CardDescription>75 DT</CardDescription>
                     </CardHeader>
                 </Card>

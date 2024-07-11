@@ -88,13 +88,13 @@ const MemberManagement: React.FC = () => {
       <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader>
-            <CardTitle className="text-primary">Nbr d'abonnés actif</CardTitle>
+            <CardTitle className="text-primary">Nbr d&apos;abonnés actif</CardTitle>
             <CardDescription>42</CardDescription>
           </CardHeader>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle className="text-destructive">Nbr d'abonnés bloqué</CardTitle>
+            <CardTitle className="text-destructive">Nbr d&apos;abonnés bloqué</CardTitle>
             <CardDescription>4</CardDescription>
           </CardHeader>
         </Card>

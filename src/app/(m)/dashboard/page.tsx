@@ -111,7 +111,7 @@ const VueGlobalePage: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <Card>
           <CardHeader>
-            <CardTitle className="text-primary">Nbr d'abonnés actif</CardTitle>
+            <CardTitle className="text-primary">Nbr d&apos;abonnés actif</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold">42</p>
@@ -119,7 +119,7 @@ const VueGlobalePage: React.FC = () => {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle className="text-destructive">Nbr d'abonnés bloqué</CardTitle>
+            <CardTitle className="text-destructive">Nbr d&apos;abonnés bloqué</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold">4</p>
